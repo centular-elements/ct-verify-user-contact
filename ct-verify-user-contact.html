@@ -1,0 +1,66 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-ajax/iron-ajax.html">
+<link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="../paper-material/paper-material.html">
+<link rel="import" href="../iron-flex-layout/iron-flex-layout-classes.html">
+<link rel="import" href="verify-user-contact-style.html">
+
+<!--
+`ct-verify-user-contact`
+User contact info verification form
+
+@demo demo/index.html 
+-->
+
+<dom-module id="ct-verify-user-contact">
+  <template>
+    <style include="iron-flex iron-flex-alignment verify-user-contact-style">
+      :host {
+        display: block;
+      }
+      div[title] {
+        text-align: center;
+      }
+
+    </style>
+
+    <div title>
+      <img class="domain-logo" src="[[ _domainLogo ]]" alt="[[ domainName ]]">
+      <div class="vertical center-justified layout">
+        <p class="title">[[ _title ]]</p>
+        <p class="description">[[ _description ]]</p>
+      </div>
+    </div>
+
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'ct-verify-user-contact',
+
+      properties: {
+        domainId: String,
+        domainName: String,
+        success: String,
+        isEmail: String
+      },
+
+      ready: function() {
+        this._domainLogo = 'http://resource.centular.com/' + this.domainId + '/logo.jpg';
+        if (this.success === "true") {
+          this._title = 'Thank You!';
+          if (this.isEmail === "true") {
+            this._description = 'Your email address have been verified';
+          } else {
+            this._description = 'Your mobile number have been verified';
+          }
+        } else {
+          this._title = 'Oops! Something went wrong :(';
+          this._description = 'Please try again later';
+        }
+      }
+
+    });
+  </script>
+</dom-module>

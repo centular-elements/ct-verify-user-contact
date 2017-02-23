@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>ct-verify-user-contact test</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+
+    <link rel="import" href="../ct-verify-user-contact.html">
+  </head>
+  <body>
+    <test-fixture id="basic">
+      <template>
+        <ct-verify-user-contact></ct-verify-user-contact>
+      </template>
+    </test-fixture>
+
+    <script>
+      suite('ct-verify-user-contact', function() {
+        test('instantiating the element works', function() {
+          var element = fixture('basic');
+          assert.equal(element.is, 'ct-verify-user-contact');
+        });
+      });
+    </script>
+  </body>
+</html>
