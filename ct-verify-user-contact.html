@@ -40,19 +40,15 @@ User contact info verification form
       properties: {
         domainId: String,
         domainName: String,
-        success: String,
-        isEmail: String
+        contactType: String,
+        success: String
       },
 
       ready: function() {
         this._domainLogo = 'http://resource.centular.com/' + this.domainId + '/logo.jpg';
         if (this.success === "true") {
           this._title = 'Thank You!';
-          if (this.isEmail === "true") {
-            this._description = 'Your email address have been verified';
-          } else {
-            this._description = 'Your mobile number have been verified';
-          }
+            this._description = 'Your '+ this.contactType +' have been verified';
         } else {
           this._title = 'Oops! Something went wrong :(';
           this._description = 'Please try again later';
